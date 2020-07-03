@@ -1,0 +1,64 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           vbump
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/vbump#readme>
+homepage:       https://github.com/fridayy/vbump#readme
+bug-reports:    https://github.com/fridayy/vbump/issues
+author:         Author name here
+maintainer:     benjamin.krenn@leftshift.one
+copyright:      2020 Benjamin Krenn
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/fridayy/vbump
+
+library
+  exposed-modules:
+      Vbump
+  other-modules:
+      Paths_vbump
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , split
+  default-language: Haskell2010
+
+executable vbump-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_vbump
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , split
+    , vbump
+  default-language: Haskell2010
+
+test-suite vbump-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_vbump
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hspec
+    , split
+    , vbump
+  default-language: Haskell2010
